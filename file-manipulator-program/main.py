@@ -9,6 +9,7 @@ if len(args) < 2:
 
 command = args[1]
 
+# TODO: バリデーションを関数に切り出す
 match command:
     case "reverse":
         if len(args) != 4:
@@ -68,6 +69,7 @@ content = ""
 with open(input_file_path) as f:
     content = f.read()
 
+# TODO: コマンドごとに処理を関数に切り出す
 match command:
     case "reverse":
         content = content[::-1]
