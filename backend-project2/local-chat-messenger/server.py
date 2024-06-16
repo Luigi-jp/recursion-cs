@@ -15,11 +15,14 @@ sock.bind(server_address)
 
 sock.listen(1)
 
+print('Waiting for a connection')
+
 while True:
     # connection: 接続したクライアントと通信するための新しいソケットオブジェクト
     # sockは引き続き別のクライアントからの接続を待ち受けるために使用され、connectionは個別のクライアントと通信するために使用される
     # client_address: 接続したクライアントのアドレス
     connection, client_address = sock.accept()
+    print('Connection from', client_address)
 
     try:
         while True:
@@ -30,6 +33,7 @@ while True:
             if data:
                 faker = Faker()
                 response = faker.text()
+                print('Sending ', response)
                 connection.sendall(response.encode())
             else:
                 break
