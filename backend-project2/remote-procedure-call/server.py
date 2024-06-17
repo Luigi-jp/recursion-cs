@@ -46,7 +46,15 @@ while True:
             data = connection.recv(4096)
             if data:
                 request = json.loads(data.decode('utf-8'))
-                connection.sendall(data)
+
+                if request['method'] in functions:
+                    result = functions[request['method']](*request['params'])
+                    print(result)
+                    response = {"results": result, "result_type": type(result).__name__, "id": 1}
+                    response_json = json.dumps(response)
+                    connection.sendall(response_json.encode())
+                else:
+                    connection.sendall('Method not found'.encode())
             else:
                 break
 
