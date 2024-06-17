@@ -1,11 +1,13 @@
 const net = require('net');
 const path = require('path');
 
+const request = '{"method": "subtract", "params": [42, 23], "param_types": ["int", "int"], "id": 1}';
+
 const SERVER_PATH = path.join(__dirname, 'socket_file');
 
 const client = net.createConnection(SERVER_PATH, () => {
     console.log('Connected to server');
-    client.write('Hello World!');
+    client.write(request);
 });
 
 client.on('data', (data) => {

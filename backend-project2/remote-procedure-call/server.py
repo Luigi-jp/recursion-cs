@@ -1,3 +1,4 @@
+import json
 import socket
 import os
 
@@ -20,8 +21,7 @@ while True:
         while True:
             data = connection.recv(4096)
             if data:
-                # jsonデータが受け取れるか確認
-                print(data.decode('utf-8'))
+                request = json.loads(data.decode('utf-8'))
                 connection.sendall(data)
             else:
                 break
