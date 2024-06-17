@@ -1,6 +1,22 @@
 import json
+import math
 import socket
 import os
+
+def floor(x):
+    return math.floor(x)
+
+def nroot(n, x):
+    return x ** (1 / n)
+
+def reverse(s):
+    return s[::-1]
+
+def validAnagram(str1, str2):
+    return sorted(str1) == sorted(str2)
+
+def sort(strArr):
+    return sorted(strArr)
 
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 server_address = './socket_file'
