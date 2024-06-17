@@ -18,6 +18,14 @@ def validAnagram(str1, str2):
 def sort(strArr):
     return sorted(strArr)
 
+functions = {
+    'floor': floor,
+    'nroot': nroot,
+    'reverse': reverse,
+    'validAnagram': validAnagram,
+    'sort': sort
+}
+
 sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
 server_address = './socket_file'
 
