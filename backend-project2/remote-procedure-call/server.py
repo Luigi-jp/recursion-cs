@@ -7,7 +7,7 @@ def floor(x):
     return math.floor(x)
 
 def nroot(n, x):
-    return x ** (1 / n)
+    return math.floor(x ** (1 / n))
 
 def reverse(s):
     return s[::-1]

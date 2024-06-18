@@ -1,7 +1,7 @@
 const net = require('net');
 const path = require('path');
 
-const request = '{"method": "floor", "params": ["3.14"], "param_types": ["float"], "id": 1}';
+const request = '{"method": "floor", "params": [3.14], "param_types": ["int"], "id": 1}';
 
 const SERVER_PATH = path.join(__dirname, 'socket_file');
 
